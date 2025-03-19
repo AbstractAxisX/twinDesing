@@ -19,30 +19,68 @@
    
     <!-- * navbar -->
     <header data-aos="fade-down" data-aos-duration="1000"
-        class="  relative -mb-16 z-20 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm pb-3 sm:py-3 rounded-b-3xl bg-opacity-75 backdrop-blur-md"
-        dir="ltr">
-        <nav class="max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between">
-            <img src="./pictures/basicLogo.png" alt="" class="max-w-36 -my-5 pt-1 hidden sm:block" />
-            <img src="./pictures/mobileLogo.png" alt="" class="block sm:hidden w-9 -mb-3" />
-            <div class="flex flex-row items-center gap-2 mt-3 sm:justify-end sm:mt-0 sm:ps-5">
-                <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
-                    href="./arashk.html">
-                   مقالات
+    class="relative -mb-16 z-20 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm pb-3 py-3 rounded-b-3xl bg-opacity-75 backdrop-blur-md"
+    dir="ltr">
+    <nav class="max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between">
+        <img src="./pictures/basicLogo.png" alt="" class="max-w-36 -my-5 pt-1 " />
+        
+        <!-- همبرگر منو برای موبایل -->
+        <button id="hamburger-btn" class="sm:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        
+        <!-- منوی دسکتاپ -->
+        <div class="hidden sm:flex flex-row items-center gap-2 mt-3 sm:justify-end sm:mt-0 sm:ps-5">
+            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
+                href="./arashk.html">
+                مقالات
+            </a>
+            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
+                href="./contact.html">
+                ارتباط با ما
+            </a>
+            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
+                href="./about.html">
+                درباره ما
+            </a>
+            <a class="font-medium focus:outline-hidden" href="./index.html" aria-current="page">
+                صفحه اصلی
+            </a>
+        </div>
+        
+        <!-- منوی همبرگری موبایل -->
+        <div id="mobile-menu" class="hidden fixed top-0 right-0 h-full w-full   bg-white bg-opacity-75 z-50 transition-all duration-300 py-4 ">
+            <div class="flex justify-end bg-white bg-opacity-75">
+                <button id="close-menu" class="focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col items-center justify-center gap-6 py-5 rounded-b-2xl bg-white bg-opacity-75">
+                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
+                    href="./index.html" aria-current="page">
+                    صفحه اصلی
                 </a>
-                <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
-                    href="./contact.html">
-                    ارتباط با ما
-                </a>
-                <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
+                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
                     href="./about.html">
                     درباره ما
                 </a>
-                <a class="font-medium focus:outline-hidden" href="./index.html" aria-current="page">
-                    صفحه اصلی
+                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
+                    href="./contact.html">
+                    ارتباط با ما
+                </a>
+                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
+                    href="./arashk.html">
+                    مقالات
                 </a>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
 
 
 
@@ -136,6 +174,30 @@
 </body>
 <script>
     AOS.init();
+    
+    // navbar
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    hamburgerBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('hidden');
+        // انیمیشن ورود
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => {
+            mobileMenu.style.opacity = '1';
+        }, 10);
+    });
+    
+    closeMenuBtn.addEventListener('click', function() {
+        // انیمیشن خروج
+        mobileMenu.style.opacity = '0';
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+        }, 300);
+    });
+});
     </script>
 </html>
         <!-- divider -->
