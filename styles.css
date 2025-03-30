@@ -16,3 +16,19 @@ body{
 .max-my-w{
     max-width: 80vw;
 }
+.blog-card .blog-card-img{
+    transition: all ease;
+    transition-duration: 0.3s;
+}
+.blog-card:hover .blog-card-img{
+    transform: scale(1.1);
+    opacity: 70%;
+}
+.blog-card:hover .blog-card-button{
+   display: block;
+}
+.blog-card-button{
+    display:  none  ;
+    transition: all ease;
+    transition-duration: 0.3s;
+}
