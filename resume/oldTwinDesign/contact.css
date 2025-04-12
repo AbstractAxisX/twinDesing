@@ -1,0 +1,119 @@
+/* ============================ fonts ========================= */
+
+@font-face {
+    font-family: "morabaa";
+    src: url("font/Morabba-Medium.woff") format("woff"),
+        url("font/Morabba-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "morabaa2";
+    src: url("font//Morabba-Light.woff") format("woff"),
+        url("font/Morabba-Medium.woff2") format("woff2");
+}
+
+/* ======================= button styles ======================== */
+
+.btn-outline-info {
+    color: rgb(137, 4, 64);
+    border-color: rgb(137, 4, 64);
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:active,
+.btn-outline-info:focus-visible {
+    color: white !important;
+    border-color: rgb(137, 4, 64) !important;
+    background-color: rgb(137, 4, 64) !important;
+}
+
+.my-btn-hover {
+    border-radius: 0.3rem;
+    transition: all ease 0.2s;
+}
+
+.my-btn-hover:hover {
+    transform: scaleX(1.05);
+    background-color: rgb(137, 4, 64);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.22);
+}
+
+/* ======================== base styles ======================= */
+
+:root {
+    --bs-primary-rgb: 108, 7, 66 !important;
+    --bs-info-rgb: 108, 7, 66 !important;
+}
+
+::selection {
+    background-color: rgba(137, 4, 64, 0.385);
+}
+
+.line {
+    height: 2px;
+    background-color: rgba(137, 4, 64, 0.385);
+    border-radius: 1rem;
+}
+
+body {
+    font-family: "morabaa";
+    background-color: #1a1921;
+}
+
+/* ========================= navbar =========================== */
+
+.my-nav-shadow {
+    box-shadow: 0 0 10px rgba(137, 4, 64, 0.385);
+}
+
+.my-bg-search,
+.my-bg-search:active,
+.my-bg-search:focus {
+    background: transparent;
+    border: 1px solid rgb(137, 4, 64) !important;
+    color: white !important;
+}
+
+/* ========================= Cards style ======================== */
+
+.my-card {
+    font-family: "morabaa2";
+    text-align: center;
+    border: 1px solid rgb(137, 4, 64);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(137, 4, 64, 0.472);
+    background-color: #131218;
+    margin: 16px 16px;
+}
+
+.card-image {
+    max-height: 8rem;
+}
+
+/* ====================== Links style ========================== */
+
+.bi {
+    font-size: 5rem;
+    transition: all ease 0.15s;
+}
+
+.my-col {
+    text-align: center;
+}
+
+.bi:hover {
+    color: rgba(137, 4, 64, 0.8);
+    text-shadow: 0 0 20px rgb(137, 4, 64);
+    font-size: 7rem;
+}
+
+a:active {
+    color: rgba(137, 4, 64, 0.8);
+}
+
+a:visited {
+    color: white;
+}
+
+/* ======================== End =========================== */
