@@ -1,69 +1,107 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <script src="https://cdn.tailwindcss.com?version=3.4.1"></script>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        />
-        <!-- AOS CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-            rel="stylesheet"
-        />
-        <!-- AOS JS -->
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <link rel="icon" type="image/x-icon" href="./pictures/favicon.ico" />
-        <!-- Alpine js -->
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <title>TwinDesign</title>
-    </head>
-    <body
-        class="bg-[url('./pictures/3254317.jpg')] bg-cover bg-no-repeat min-h-screen"
-    >
-        <!-- Banner -->
-        <div class="flex flex-row justify-center">
-            <section
-                class="bg-gray-300 bg-opacity-50 backdrop-blur-sm text-center mt-10 rounded-xl border p-2 inline-block mx-5 shadow-md shadow-gray-500/60"
-            >
-                <h1 class="sm:text-3xl text-2xl text-gray-800">
-                   مقالات تخصصی تواین دیزاین
-                </h1>
-                <p class="sm:text-xl text-lg leading-8 text-gray-800 mx-2 mt-2">
-                    ✅ آموزشهای عملی | ✅ تحلیلهای بازار | ✅ نکات فنی  
-                </p>
-            </section>
-        </div>
 
-        <!-- Cards -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com?version=3.4.1"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="icon" type="image/x-icon" href="./pictures/favicon.ico" />
+    <!-- Alpine js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>TwinDesign</title>
+</head>
+
+<body class="bg-[url('./pictures/3254317.jpg')] bg-cover bg-no-repeat min-h-screen">
+    <!-- Banner -->
+    <div class="flex flex-row justify-center">
         <section
-            class="mx-5 mb-8 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 lg:gap-8 pt-8"
-        >
-            <a
-            href="#"
-                data-aos="zoom-in"
-                data-aos-duration="1000"
-                data-aos-easing="ease"
-                class="blog-card overflow-hidden bg-gray-300 bg-opacity-25 backdrop-blur-sm border shadow-sm shadow-gray-500 rounded-xl duration-100"
-            >
-            <div class="img-container  items-center justify-center flex "  x-data="{show : false}">
-                <p class=" blog-card-button backdrop-blur-sm p-2 rounded-lg absolute z-10 text-white bg-slate-900 bg-opacity-75  " >  نمایش مقاله  </p>
-                <img
-                    src="./pictures/Nature HD Wallpapers 217.jpg"
-                    alt=""
-                    class="rounded-xl blog-card-img"
-                /></div>
-                <div class="text p-2 text-center">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing</p>
-                </div>
-            </ش>
-            
+            class="bg-gray-300 bg-opacity-50 backdrop-blur-sm text-center mt-10 rounded-xl border p-2 inline-block mx-5 shadow-md shadow-gray-500/60">
+            <h1 class="sm:text-3xl text-2xl text-gray-800">
+                مقالات تخصصی تواین دیزاین
+            </h1>
+            <p class="sm:text-xl text-lg leading-8 text-gray-800 mx-2 mt-2">
+                ✅ آموزشهای عملی | ✅ تحلیلهای بازار | ✅ نکات فنی
+            </p>
         </section>
-    </body>
-    <script>
-        AOS.init();
-    </script>
+    </div>
+
+    <!-- Cards -->
+    <section class="mx-5 mb-8 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 lg:gap-8 pt-8">
+        <!--card 1  -->
+        <a href="#" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease"
+            class="blog-card overflow-hidden bg-gray-300 bg-opacity-25 backdrop-blur-sm border shadow-sm shadow-gray-500 rounded-xl duration-100 h-[30vh] lg:h-[35vh] ">
+            <div class="img-container  items-center justify-center flex " x-data="{show : false}">
+                <p
+                    class=" blog-card-button backdrop-blur-sm p-2 rounded-lg absolute z-10 text-white bg-slate-700 bg-opacity-50 ">
+                    نمایش مقاله </p>
+                <img src="./pictures/Nature HD Wallpapers 217.jpg" alt="" class="rounded-xl blog-card-img" />
+            </div>
+            <div class="text p-2 text-center">
+                <h3 class="text-lg"> تیتر مقاله </h3>
+                <p class="text-sm text-gray-800"> متن فارسی جهت تست . این یک متن فارسی جهت تست دسکریپشن پادکست یا مقاله
+                    است </p>
+            </div>
+
+            <div class="absolute bottom-0 right-0 left-0">
+                <div class="flex flex-row justify-between text-gray-600 text-sm px-2 align-text-bottom ">
+
+                    <div class="writter flex flex-row">
+                        <p> مهدی رحیمی </p>
+                        <i class="bi bi-pencil-square px-1"></i>
+                    </div>
+
+
+                    <div class="view flex flex-row ">
+                        <span>6</span>
+                        <i class="bi bi-eye-fill px-1"></i>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+        <!-- card 2 -->
+        <a href="#" data-aos="zoom-in" data-aos-duration="1000" data-aos-easing="ease"
+            class="blog-card overflow-hidden bg-gray-300 bg-opacity-25 backdrop-blur-sm border shadow-sm shadow-gray-500 rounded-xl duration-100 h-[30vh] lg:h-[35vh] ">
+            <div class="img-container  items-center justify-center flex " x-data="{show : false}">
+                <p
+                    class=" blog-card-button backdrop-blur-sm p-2 rounded-lg absolute z-10 text-white bg-slate-700 bg-opacity-50 ">
+                    نمایش مقاله </p>
+                <img src="./pictures/Nature HD Wallpapers 217.jpg" alt="" class="rounded-xl blog-card-img" />
+            </div>
+            <div class="text p-2 text-center">
+                <h3 class="text-lg"> تیتر مقاله </h3>
+                <p class="text-sm text-gray-800"> متن فارسی جهت تست . این یک متن فارسی جهت تست دسکریپشن پادکست یا مقاله
+                    است </p>
+            </div>
+
+            <div class="absolute bottom-0 right-0 left-0">
+                <div class="flex flex-row justify-between text-gray-600 text-sm px-2 align-text-bottom ">
+
+                    <div class="writter flex flex-row">
+                        <p> مهدی رحیمی </p>
+                        <i class="bi bi-pencil-square px-1"></i>
+                    </div>
+
+
+                    <div class="view flex flex-row ">
+                        <span>6</span>
+                        <i class="bi bi-eye-fill px-1"></i>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+
+    </section>
+</body>
+<script>
+    AOS.init();
+</script>
+
 </html>
