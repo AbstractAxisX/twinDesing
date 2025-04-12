@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گالری عکس سورئال</title>
+<!-- ترتیب صحیح اسکریپتها -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ <style>
+    @font-face {
+      font-family: 'Vazir';
+      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.woff2') format('woff2');
+    }
+    body {
+      font-family: 'Vazir', sans-serif;
+      background-color: #0f0f0f;
+      color: #f9f9f9;
+    }
+    .transition-transform {
+      transition: transform 0.5s ease;
+    }
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
+    }
+    .image-container:hover .image-overlay {
+      opacity: 1;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div x-data="{ 
+    menuOpen: false,
+    currentCategory: 'همه',
+    categories: ['همه', 'طبیعت', 'معماری', 'پرتره', 'انتزاعی'],
+    darkMode: true,
+    showImage: false,
+    currentImage: ''
+  }">
+    <!-- نوار منو -->
+    <nav class="bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg fixed w-full z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-6">
+          <div class="flex items-center space-x-4 space-x-reverse">
+            <div class="text-3xl font-bold text-indigo-400">ویکی سورئال</div>
+          </div>
+          
+          <!-- منوی دسکتاپ -->
+          <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+            <a href="#home" class="text-gray-300 hover:text-white">خانه</a>
+            <a href="#gallery" class="text-gray-300 hover:text-white">گالری</a>
+            <a href="#about" class="text-gray-300 hover:text-white">درباره</a>
+            <a href="#contact" class="text-gray-300 hover:text-white">تماس</a>
+          </div>
+          
+          <!-- دکمه منوی موبایل -->
+          <div class="md:hidden">
+            <button @click="menuOpen = !menuOpen" class="text-white focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- منوی موبایل -->
+      <div x-show="menuOpen" @click.away="menuOpen = false" class="md:hidden bg-black bg-opacity-90 py-4">
+        <div class="container mx-auto px-4 flex flex-col space-y-4">
+          <a href="#home" class="text-gray-300 hover:text-white">خانه</a>
+          <a href="#gallery" class="text-gray-300 hover:text-white">گالری</a>
+          <a href="#about" class="text-gray-300 hover:text-white">درباره</a>
+          <a href="#contact" class="text-gray-300 hover:text-white">تماس</a>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- بخش هدر و معرفی -->
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://picsum.photos/1600/900" class="w-full h-full object-cover opacity-50" alt="تصویر هدر">
+      </div>
+      <div class="container mx-auto px-4 z-10 text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <span class="inline-block">دنیای</span>
+          <span class="inline-block text-indigo-400">سورئال</span>
+        </h1>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto text-gray-300 mb-8">
+          در مرز بین واقعیت و خیال، جایی که رویاها به تصویر کشیده می‌شوند.
+        </p>
+        <a href="#gallery" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
+          مشاهده گالری
+        </a>
+      </div>
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+    </header>
+    
+    <!-- بخش گالری -->
+    <section id="gallery" class="py-20 bg-gradient-to-b from-black to-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-12 text-center text-white">گالری <span class="text-indigo-400">سورئال</span></h2>
+        
+        <!-- دسته‌بندی‌ها -->
+        <div class="flex flex-wrap justify-center mb-12 gap-2">
+          <template x-for="category in categories" :key="category">
+            <button 
+              @click="currentCategory = category" 
+              class="px-4 py-2 rounded-lg transition duration-300"
+              :class="currentCategory === category ? 'bg-indigo-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'"
+              x-text="category">
+            </button>
+          </template>
+        </div>
+        
+        <!-- گرید تصاویر -->
+        <div class="gallery-grid">
+          <!-- تصویر 1 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=1'">
+            <img src="https://picsum.photos/600/400?random=1" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">رویای بی‌انتها</h3>
+              <p class="text-gray-300">طبیعت</p>
+            </div>
+          </div>
+          
+          <!-- تصویر 2 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=2'">
+            <img src="https://picsum.photos/600/400?random=2" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">شهر معلق</h3>
+              <p class="text-gray-300">معماری</p>
+            </div>
+          </div>
+          
+          <!-- تصویر 3 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=3'">
+            <img src="https://picsum.photos/600/400?random=3" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">چهره‌های پنهان</h3>
+              <p class="text-gray-300">پرتره</p>
+            </div>
+          </div>
+          
+          <!-- تصویر 4 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=4'">
+            <img src="https://picsum.photos/600/400?random=4" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">ریزش زمان</h3>
+              <p class="text-gray-300">انتزاعی</p>
+            </div>
+          </div>
+          
+          <!-- تصویر 5 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=5'">
+            <img src="https://picsum.photos/600/400?random=5" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">خواب عمیق</h3>
+              <p class="text-gray-300">طبیعت</p>
+            </div>
+          </div>
+          
+          <!-- تصویر 6 -->
+          <div class="image-container relative overflow-hidden rounded-lg transition-transform hover:scale-105" @click="showImage = true; currentImage = 'https://picsum.photos/600/400?random=6'">
+            <img src="https://picsum.photos/600/400?random=6" class="w-full h-64 object-cover" alt="تصویر سورئال">
+            <div class="image-overlay absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <h3 class="text-lg font-bold text-white">سقوط در آسمان</h3>
+              <p class="text-gray-300">انتزاعی</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- نمایش تصویر بزرگ -->
+        <div x-show="showImage" @click="showImage = false" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+          <div @click.stop class="relative max-w-4xl max-h-screen">
+            <img :src="currentImage" class="max-w-full max-h-screen object-contain" alt="تصویر بزرگ">
+            <button @click="showImage = false" class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- دکمه نمایش بیشتر -->
+        <div class="text-center mt-12">
+          <button class="bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white px-6 py-3 rounded-lg transition duration-300">
+            نمایش بیشتر
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- بخش درباره -->
+    <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="w-full md:w-1/2">
+            <div class="relative">
+              <img src="https://picsum.photos/600/800?random=10" class="w-full rounded-lg shadow-xl" alt="تصویر هنرمند">
+              <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-indigo-600 rounded-lg -z-10"></div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2">
+            <h2 class="text-4xl font-bold mb-6">درباره <span class="text-indigo-400">هنرمند</span></h2>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              فتوگرافی سورئال، هنر خلق تصاویری است که مرز میان واقعیت و خیال را درهم می‌شکند. من به عنوان یک عکاس سبک سورئال، تلاش می‌کنم تا با ترکیب عناصر غیرمنتظره، خلق فضاهای رؤیایی و دستکاری تصاویر، روایتی جدید از دنیای اطراف ارائه دهم.
+            </p>
+            <p class="text-gray-300 mb-8 leading-relaxed">
+              الهام من از مکاتب هنری مختلف نظیر اکسپرسیونیسم، دادائیسم و البته سورئالیسم سرچشمه می‌گیرد. آثار من بازتابی از ناخودآگاه ذهن، رؤیاها و اندیشه‌های بی‌پایان انسان است که هدفشان به چالش کشیدن درک بیننده از واقعیت است.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg transition duration-300">
+                مشاهده رزومه
+              </a>
+              <a href="#contact" class="bg-transparent border border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white px-6 py-3 rounded-lg transition duration-300">
+                تماس با من
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- بخش ویژگی‌ها و سبک -->
+    <section class="py-20 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-16 text-center">سبک <span class="text-indigo-400">هنری</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- ویژگی 1 -->
+          <div class="bg-black bg-opacity-50 p-8 rounded-lg border border-gray-800 hover:border-indigo-600 transition duration-300">
+            <div class="mb-6 text-4xl text-indigo-400">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">بازی با واقعیت</h3>
+            <p class="text-gray-400">
+              در آثار من، عناصر واقعی در کنار یکدیگر قرار می‌گیرند تا معنایی فراتر از واقعیت خلق کنند. این ترکیب‌های غیرمنتظره به بیننده امکان تفسیر شخصی می‌دهد.
+            </p>
+          </div>
+          
+          <!-- ویژگی 2 -->
+          <div class="bg-black bg-opacity-50 p-8 rounded-lg border border-gray-800 hover:border-indigo-600 transition duration-300">
+            <div class="mb-6 text-4xl text-indigo-400">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">روایت تصویری</h3>
+            <p class="text-gray-400">
+              هر تصویر روایتی رمزآلود دارد که بیننده را به سفری درونی دعوت می‌کند. تلاش می‌کنم تا با استفاده از نمادها و عناصر بصری، داستانی چندلایه خلق کنم.
+            </p>
+          </div>
+          
+          <!-- ویژگی 3 -->
+          <div class="bg-black bg-opacity-50 p-8 rounded-lg border border-gray-800 hover:border-indigo-600 transition duration-300">
+            <div class="mb-6 text-4xl text-indigo-400">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4">فضاسازی رؤیایی</h3>
+            <p class="text-gray-400">
+              خلق فضاهای رؤیایی و جادویی از ویژگی‌های اصلی آثار من است. با دستکاری نور، رنگ و ترکیب‌بندی، دنیاهایی خلق می‌کنم که در آن همه چیز ممکن است.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- بخش تماس -->
+    <section id="contact" class="py-20 bg-black">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold mb-16 text-center">تماس <span class="text-indigo-400">با من</span></h2>
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="w-full md:w-1/2">
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-gray-400 mb-2">نام</label>
+                  <input type="text" id="name" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                  <label for="email" class="block text-gray-400 mb-2">ایمیل</label>
+                  <input type="email" id="email" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500">
+                </div>
+              </div>
+              <div>
+                <label for="subject" class="block text-gray-400 mb-2">موضوع</label>
+                <input type="text" id="subject" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500">
+              </div>
+              <div>
+                <label for="message" class="block text-gray-400 mb-2">پیام</label>
+                <textarea id="message" rows="5" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500"></textarea>
+              </div>
+              <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg transition duration-300">
+                ارسال پیام
+              </button>
+            </form>
+          </div>
+          <div class="w-full md:w-1/2">
+            <div class="bg-gray-900 rounded-lg p-8 h-full">
+              <h3 class="text-2xl font-bold mb-6">اطلاعات تماس</h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white">ایمیل</h4>
+                    <p class="text-gray-400">info@surreal-wiki.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white">تلفن</h4>
+                    <p class="text-gray-400">۰۲۱-۱۲۳۴۵۶۷۸</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4 space-x-reverse">
+                  <div class="text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white">آدرس</h4>
+                    <p class="text-gray-400">تهران، خیابان سورئال، کوچه خیال، پلاک ۴۲</p>
+                  </div>
+                </div>
+                <div class="pt-6">
+<!-- ادامه بخش شبکه‌های اجتماعی -->
+<div class="pt-6">
+  <h4 class="font-bold text-white mb-4">شبکه‌های اجتماعی</h4>
+  <div class="flex space-x-4 space-x-reverse">
+    <a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">
+      <i class="bi bi-instagram text-2xl text-gray-400 hover:text-indigo-400 duration-300"></i>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">
+      <i class="bi bi-instagram text-2xl text-gray-400 hover:text-indigo-400 duration-300"></i>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-indigo-400 transition duration-300">
+      <i class="bi bi-instagram text-2xl text-gray-400 hover:text-indigo-400 duration-300"></i>
+    </a>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- پاورقی -->
+<footer class="bg-gray-950 py-12">
+  <div class="container mx-auto px-4 text-center text-gray-400">
+    <p>&copy; 2023 ویکی سورئال. تمامی حقوق محفوظ است.</p>
+    <div class="mt-4 flex justify-center space-x-4 space-x-reverse">
+      <a href="#" class="text-gray-400 hover:text-white transition duration-300">سیاست حریم خصوصی</a>
+      <a href="#" class="text-gray-400 hover:text-white transition duration-300">شرایط استفاده</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // اسکریپت‌های جاوااسکریپت برای انیمیشن‌ها و تعاملات
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('gallery', () => ({
+      menuOpen: false,
+      currentCategory: 'همه',
+      categories: ['همه', 'طبیعت', 'معماری', 'پرتره', 'انتزاعی'],
+      darkMode: true,
+      showImage: false,
+      currentImage: ''
+    }));
+  });
+
+  // فعال‌سازی GSAP و ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // انیمیشن برای بخش هدر
+  gsap.from('.header-content', {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: 'power2.out'
+  });
+
+  // انیمیشن برای گالری
+  gsap.utils.toArray('.image-container').forEach((image) => {
+    gsap.from(image, {
+      scrollTrigger: {
+        trigger: image,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1
+    });
+  });
+</script>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+</body>
