@@ -17,78 +17,40 @@
 
 <div class="bg-gray-100">
    
-    <!-- * navbar -->
-    <header data-aos="fade-down" data-aos-duration="1000"
-    class="relative -mb-16 z-20 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm pb-3 py-3 rounded-b-3xl bg-opacity-75 backdrop-blur-md"
-    dir="ltr">
-    <nav class="max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between">
-        <img src="./pictures/basicLogo.png" alt="" class="max-w-36 -my-5 pt-1 " />
-        
-        <!-- همبرگر منو برای موبایل -->
-        <button id="hamburger-btn" class="sm:hidden focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-        </button>
-        
-        <!-- منوی دسکتاپ -->
-        <div class="hidden sm:flex flex-row items-center gap-2 mt-3 sm:justify-end sm:mt-0 sm:ps-5">
-            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
-                href="./arashk.html">
-                مقالات
-            </a>
-            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
-                href="./contact.html">
-                ارتباط با ما
-            </a>
-            <a class="font-medium text-gray-100 bg-gray-950 px-3 py-1 rounded-full hover:bg-gray-600"
-                href="./about.html">
-                درباره ما
-            </a>
-            <a class="font-medium focus:outline-hidden" href="./index.html" aria-current="page">
-                صفحه اصلی
-            </a>
-        </div>
-        
-        <!-- منوی همبرگری موبایل -->
-        <div id="mobile-menu" class="hidden fixed top-0 right-0 h-full w-full   bg-white bg-opacity-75 z-50 transition-all duration-300 py-4 ">
-            <div class="flex justify-end bg-white bg-opacity-75">
-                <button id="close-menu" class="focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="flex flex-col items-center justify-center gap-6 py-5 rounded-b-2xl bg-white bg-opacity-75">
-                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
-                    href="./index.html" aria-current="page">
-                    صفحه اصلی
-                </a>
-                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
-                    href="./about.html">
-                    درباره ما
-                </a>
-                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
-                    href="./contact.html">
-                    ارتباط با ما
-                </a>
-                <a class="font-medium text-gray-100 bg-gray-950 px-5 py-2 rounded-full hover:bg-gray-600 w-64 text-center"
-                    href="./arashk.html">
-                    مقالات
-                </a>
-            </div>
-        </div>
-    </nav>
-</header>
-
+        <!-- * navbar -->
+        <header data-aos="fade-down" data-aos-duration="1000"
+            class="  relative -mb-16 z-20 bg-white flex  flex-wrap sm:justify-start sm:flex-nowrap w-full  text-sm pb-3 sm:py-3 rounded-b-3xl bg-opacity-25 backdrop-blur-md"
+            dir="ltr">
+            <nav class="  max-w-[85rem] w-full mx-auto px-4 flex items-center justify-between">
+                <img src="./pictures/basicLogo.png" alt="" class="max-w-36 -my-5 pt-1 hidden sm:block" />
+                <img src="./pictures/mobileLogo.png" alt="" class="block sm:hidden w-9 -mb-3" />
+                <div class="flex flex-row items-center gap-2 mt-3 sm:justify-end sm:mt-0 sm:ps-5">
+                    <a class="font-medium text-gray-100 bg-blue-900 px-2 py-1 rounded-full duration-200 hover:bg-indigo-700"
+                        href="./arashk.html">
+                        مقالات
+                    </a>
+                    <a class="font-medium text-gray-100 bg-blue-900 px-2 py-1 rounded-full duration-200 hover:bg-indigo-700"
+                        href="./contact.html">
+                        ارتباط با ما
+                    </a>
+                    <a class="font-medium text-gray-100 bg-blue-900 px-2 py-1 rounded-full duration-200 hover:bg-indigo-700"
+                        href="./about.html">
+                        درباره ما
+                    </a>
+                    <a class="font-medium focus:outline-hidden" href="./index.html" aria-current="page">
+                        صفحه اصلی
+                    </a>
+                </div>
+            </nav>
+        </header>
 
 
 
 
     <!-- * Story -->
-    <div class=" py-[15vh]  mx-auto px-5  bg-[url('./pictures/wavy1.jpg')] bg-cover ">
+    <div class=" py-[15vh]  mx-auto px-5  bg-[url('./pictures/p5.jpg')] bg-cover ">
         <div class="flex flex-row" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease">
-            <div class="card lg:max-w-[70vw] bg-white bg-opacity-25 flex md:flex-row flex-col gap-3 shadow-md shadow-gray-700/30 rounded-xl backdrop-blur-lg">
+            <div class="card border-l border-white lg:max-w-[70vw] bg-white bg-opacity-25 flex md:flex-row flex-col gap-3 shadow-sm shadow-gray-700/30 rounded-xl backdrop-blur-lg">
                 <img src="./pictures/step2About.jpg" alt="" class="flex-1 md:w-96 rounded-lg mx-auto w-full">
                 <p class="flex-2 leading-8 p-4 text-gray-950 lg:text-xl lg:leading-10">
                     همه چیز از یک اتفاق شروع شد؛ زمانی که دو دوست، تصمیم گرفتن که به همکارایی تبدیل بشن که ذره‌ای به هم شبیه نبودن. بر حسب اتفاق، هر دوشون می‌‌خواستن که طراح وبسایت بشن. پس استارت یک تیم رو باهم زدن. هر روز بر سر چالش‌ها درگیری داشتن و گاهاً با همدیگه هم دعوا بر سر اینکه چه کاری انجام بدن، می‌کردن. چالش‌ها یکی‌یکی پشت سرگذاشته می‌شد و این دوتا یاد می‌گرفتن که چطوری با هم کنار بیاند و با وجود تفاوت‌های واضح خودشون، به تفاهم برسند؛ البته نه همیشه.
@@ -97,7 +59,7 @@
         </div>
 
         <div class="flex flex-row-reverse mt-4" data-aos="zoom-in" data-aos-duration="1500" data-aos-easing="ease">
-            <div class="card lg:max-w-[70vw] bg-white bg-opacity-25 flex md:flex-row-reverse flex-col gap-3 shadow-md shadow-gray-700/30 rounded-xl backdrop-blur-lg">
+            <div class="card border-r  border-white lg:max-w-[70vw] bg-white bg-opacity-25 flex md:flex-row-reverse flex-col gap-3 shadow-sm shadow-gray-700/30 rounded-xl backdrop-blur-lg">
                 <img src="./pictures/step3About.jpg" alt="" class="flex-1 md:w-96 rounded-lg mx-auto w-full">
                 <p class="flex-2 leading-8 p-4 text-gray-950 lg:text-xl lg:leading-10">
                     از این قسمت که گذشت، با یک دیزاینر آشنا شدند که در کار خودش حرفه‌ای بود و این باعث شد که یک تیم سه نفره تشکیل بشه. این دیزاینر حرفه‌ای هم با چالش‌های تیمی روبرو شد که همین موضوع باعث پیشرفت اعضای تیم شد. در آخر، این سه نفر تصمیم گرفتن که وبسایتی طراحی کنن که بتونه خدماتی در همین موضوع ارائه بده.
@@ -110,22 +72,22 @@
     
     <!-- *  About -->
     <!-- divider -->
-    <h2 class="  -top-8 relative bg-gray-200 py-3  bg-opacity-80 backdrop-blur-md rounded-full text-center text-2xl font-bold text-gray-900 shadow-md "> اهداف ما </h2>
-    <div class=" px-5  bg-[url('./pictures/3254317.jpg')] py-[15vh] -mt-14 bg-cover ">
+    <h2 class="  -top-8 relative bg-gray-200 py-3  bg-opacity-25 backdrop-blur-lg rounded-full text-center text-2xl font-bold text-gray-900 shadow-md border-r border-l border-white"> اهداف ما </h2>
+    <div class=" px-5  bg-[url('./pictures/p5.jpg')] py-[15vh] -mt-14 bg-cover ">
 
-        <p class="text-center leading-8 lg:leading-10 backdrop-blur-md py-5 px-4  shadow-md shadow-gray-700/10  rounded-xl lg:text-xl border " data-aos="zoom-in-down" data-aos-duration="1000" data-aos-easing="ease">
+        <p class="text-center leading-8 lg:leading-10 backdrop-blur-lg py-5 px-4  shadow-md shadow-gray-700/10  rounded-xl lg:text-xl border " data-aos="zoom-in-down" data-aos-duration="1000" data-aos-easing="ease">
             تیم تواین دیزاین، برای مشتریان خودش تجربه‌ای خاص و به‌یاد ماندنی رو به ارمغان میاره. با ما به وبسایت زیبا خود دست پیدا کنید. این تیم نه تنها در تلاشه تا فعالیت‌های خودش رو گسترش بده، بلکه به طور مداوم در حال ارتقاء مهارت‌های خودش هست. عشق به کار و تعهد به کیفیت، اونا رو در مسیر موفقیت هدایت می‌کنه و بهشون این امکان را می‌ده که آثار برجسته‌ای را خلق کنن که نه تنها نیازهای مشتریان را برآورده کنه، بلکه تجربه‌ای بی‌نظیر رو ارائه بده. به عنوان یک مجموعه نوپا، اونا با اشتیاق و انگیزه بالا به دنبال ایجاد تأثیر مثبت در دنیای طراحی وب هستن.
         </p>
 
     <section class="flex flex-col md:flex-row mt-12 gap-4">
         <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-easing="ease"
-            class="cart flex-1 border rounded-xl duration-75 flex flex-col backdrop-blur-sm shadow-lg shadow-gray-800/20" >
-            <img src="./pictures/amin.jpg" alt="" class="rounded-xl m-2" />
+            class="cart flex-1 border-t border-b border-white rounded-xl duration-75 flex flex-col backdrop-blur-lg shadow-lg shadow-gray-800/10" >
+            <img src="./pictures/aminC.jpg" alt="" class="rounded-xl m-2" />
             <div class="text mx-4">
                 <h3 class="text-2xl mb-2">محمد امین غلامی</h3>
                 <h4 class="text-lg mb-1 font-bold">تخصص : بک اند</h4>
                 <h4 class="text-lg mb-4 font-bold">09137514625</h4>
-                <a href="./amin.html" class="px-4 py-2 bg-gray-950 text-white rounded-xl hover:bg-gray-700">
+                <a href="./amin.html" class="px-4 py-2 text-white bg-blue-900 rounded-xl duration-200 hover:bg-indigo-700 ">
                     مشاهده رزومه
                 </a>
                 <br />
@@ -134,13 +96,13 @@
         </div>
 
         <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-easing="ease"
-            class="cart flex-1 border rounded-xl 0 duration-75 flex flex-col backdrop-blur-sm shadow-lg shadow-gray-800/20 ">
-            <img src="./pictures/mahdi.jpg" alt="" class="rounded-xl m-2" />
+            class="cart flex-1 border-t border-b border-white rounded-xl 0 duration-75 flex flex-col backdrop-blur-lg shadow-lg shadow-gray-800/10 ">
+            <img src="./pictures/mahdiC.jpg" alt="" class="rounded-xl m-2" />
             <div class="text mx-4">
                 <h3 class="text-2xl mb-2">مهدی رحیمی</h3>
                 <h4 class="text-lg mb-1 font-bold">تخصص : فرانت اند</h4>
                 <h4 class="text-lg mb-4 font-bold">09330880234</h4>
-                <a href="./mahdi.html" class="px-4 py-2 bg-gray-950 text-white rounded-xl hover:bg-gray-700 ">
+                <a href="./mahdi.html" class="px-4 py-2 text-white bg-blue-900 rounded-xl duration-200 hover:bg-indigo-700 ">
                     مشاهده رزومه
                 </a>
                 <br />
@@ -149,13 +111,13 @@
         </div>
 
         <div data-aos="zoom-in-up" data-aos-duration="1000" data-aos-easing="ease"
-            class="cart flex-1 border rounded-xl duration-75 flex flex-col backdrop-blur-sm shadow-lg shadow-gray-800/20">
-            <img src="./pictures/arashk.jpg" alt="" class="rounded-xl m-2" />
+            class="cart border-t border-b border-white flex-1 rounded-xl duration-75 flex flex-col backdrop-blur-lg shadow-lg shadow-gray-800/10">
+            <img src="./pictures/arashkC.jpg" alt="" class="rounded-xl m-2" />
             <div class="text mx-4">
                 <h3 class="text-2xl mb-2">سید ارشک ذولقدر</h3>
                 <h4 class="text-lg mb-1 font-bold">تخصص : بک اند</h4>
                 <h4 class="text-lg mb-4 font-bold">09309523073</h4>
-                <a href="./arashk.html" class="px-4 py-2 bg-gray-950 text-white rounded-xl hover:bg-gray-700">
+                <a href="./arashk.html" class="px-4 py-2 text-white bg-blue-900 rounded-xl duration-200 hover:bg-indigo-700 ">
                     مشاهده رزومه
                 </a>
                 <br />
@@ -164,7 +126,7 @@
         </div>
     </section>
 <div class="mt-16 text-center">
-    <a href="./contact.html" class=" animate-pulse px-6 py-3 text-xl bg-gray-950 text-white rounded-xl hover:bg-gray-700">
+    <a href="./contact.html" class=" animate-pulse px-6 py-3 text-xl bg-blue-900 text-white rounded-xl duration-200 hover:bg-indigo-700">
         ارتباط با ما
     </a></div>
 
